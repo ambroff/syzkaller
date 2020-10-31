@@ -82,6 +82,7 @@ const (
 	Akaros  = "akaros"
 	FreeBSD = "freebsd"
 	Fuchsia = "fuchsia"
+	Haiku   = "haiku"
 	Linux   = "linux"
 	NetBSD  = "netbsd"
 	OpenBSD = "openbsd"
@@ -287,6 +288,16 @@ var List = map[string]map[string]*Target{
 			LittleEndian:      true,
 			CCompiler:         "clang",
 			CFlags:            []string{"-m32"},
+			NeedSyscallDefine: dontNeedSyscallDefine,
+		},
+	},
+	Haiku: {
+		AMD64: {
+			PtrSize: 8,
+			PageSize: 4 << 10,
+			LittleEndian: true,
+			CCompiler: "gcc",
+			CFlags: []string{},
 			NeedSyscallDefine: dontNeedSyscallDefine,
 		},
 	},
